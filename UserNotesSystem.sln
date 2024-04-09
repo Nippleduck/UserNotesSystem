@@ -1,0 +1,51 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34723.18
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UserNotesSystem.Server", "UserNotesSystem.Server\UserNotesSystem.Server.csproj", "{142B6F44-3D88-4504-8495-D5B026BD9802}"
+EndProject
+Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "usernotessystem.client", "usernotessystem.client\usernotessystem.client.esproj", "{FED2D944-4F9F-45F2-A0BB-2F9CF873546F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UserNotesSystem.Data", "UserNotesSystem.Data\UserNotesSystem.Data.csproj", "{47ACC94B-5E8D-42C4-B4B0-E4840D7B6BF5}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UserNotesSystem.Authentication", "UserNotesSystem.Authentication\UserNotesSystem.Authentication.csproj", "{228796CF-A157-43D0-B323-E764BA4A6F2F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserNotesSystem.Core", "UserNotesSystem.Core\UserNotesSystem.Core.csproj", "{10C2BB8D-95FB-4252-94E5-838C35C3F28C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{142B6F44-3D88-4504-8495-D5B026BD9802}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{142B6F44-3D88-4504-8495-D5B026BD9802}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{142B6F44-3D88-4504-8495-D5B026BD9802}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{142B6F44-3D88-4504-8495-D5B026BD9802}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FED2D944-4F9F-45F2-A0BB-2F9CF873546F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FED2D944-4F9F-45F2-A0BB-2F9CF873546F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FED2D944-4F9F-45F2-A0BB-2F9CF873546F}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{FED2D944-4F9F-45F2-A0BB-2F9CF873546F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FED2D944-4F9F-45F2-A0BB-2F9CF873546F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FED2D944-4F9F-45F2-A0BB-2F9CF873546F}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{47ACC94B-5E8D-42C4-B4B0-E4840D7B6BF5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{47ACC94B-5E8D-42C4-B4B0-E4840D7B6BF5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{47ACC94B-5E8D-42C4-B4B0-E4840D7B6BF5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{47ACC94B-5E8D-42C4-B4B0-E4840D7B6BF5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{228796CF-A157-43D0-B323-E764BA4A6F2F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{228796CF-A157-43D0-B323-E764BA4A6F2F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{228796CF-A157-43D0-B323-E764BA4A6F2F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{228796CF-A157-43D0-B323-E764BA4A6F2F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{10C2BB8D-95FB-4252-94E5-838C35C3F28C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{10C2BB8D-95FB-4252-94E5-838C35C3F28C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{10C2BB8D-95FB-4252-94E5-838C35C3F28C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{10C2BB8D-95FB-4252-94E5-838C35C3F28C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {52ADDDF4-73DA-48A1-AB4C-ECEA5E21AD29}
+	EndGlobalSection
+EndGlobal
