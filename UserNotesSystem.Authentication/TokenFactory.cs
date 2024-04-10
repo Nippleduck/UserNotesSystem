@@ -1,5 +1,5 @@
-﻿using Microsoft.Extensions.Options;
-using UserNotesSystem.Authentication.Models;
+﻿using UserNotesSystem.Authentication.Models;
+using Microsoft.Extensions.Options;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 
@@ -21,6 +21,7 @@ namespace UserNotesSystem.Authentication
 
             var jwt = new JwtSecurityToken(
                 claims: claims,
+                expires: options.Expiration,
                 signingCredentials: options.SigningCredentials);
 
             var encodedToken = new JwtSecurityTokenHandler().WriteToken(jwt);

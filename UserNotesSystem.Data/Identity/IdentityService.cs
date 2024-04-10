@@ -18,7 +18,7 @@ namespace UserNotesSystem.Data.Identity
             if (user is null) throw new AuthenticationFailureException(
                 $"User {request.UserName} does not exist");
 
-            var signIn = await signInManager.PasswordSignInAsync(user, request.Password, false, false);
+            var signIn = await signInManager.CheckPasswordSignInAsync(user, request.Password, false);
             if (!signIn.Succeeded) throw new AuthenticationFailureException(
                 $"Wrong password for user {user.UserName}");
 
@@ -55,18 +55,20 @@ namespace UserNotesSystem.Data.Identity
             if (user is not null) await userManager.DeleteAsync(user); 
         }
 
-        public async Task<UserDetailsResponse[]> GetAllUsersAsync()
+        public async Task<IEnumerable<UserDetailsResponse>> GetAllUsersAsync()
         {
             var users = await userManager.Users.ToArrayAsync();
-            var tasks = users.Select(user => Task.Run(async () =>
+            if (users.Length == 0) return [];  
+
+            var usersDetails = new List<UserDetailsResponse>();
+            foreach (var user in users)
             {
                 var roles = await userManager.GetRolesAsync(user);
-                return new UserDetailsResponse(user.Id, user.UserName!, roles[0]);
-            }));
+                var detail = new UserDetailsResponse(user.Id, user.UserName!, roles[0]);
+                usersDetails.Add(detail);
+            }
 
-            var userDetails = await Task.WhenAll(tasks);
-
-            return userDetails;
+            return usersDetails;
         }
     }
 }

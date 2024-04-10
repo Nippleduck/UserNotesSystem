@@ -72,7 +72,7 @@ namespace UserNotesSystem.Data.Context
 
             if (userManager.Users.All(u => u.UserName != administrator.UserName))
             {
-                await userManager.CreateAsync(administrator, "admin");
+                await userManager.CreateAsync(administrator, "Admin123!");
                 if (!string.IsNullOrWhiteSpace(administratorRole.Name))
                 {
                     await userManager.AddToRolesAsync(administrator, [ administratorRole.Name ]);

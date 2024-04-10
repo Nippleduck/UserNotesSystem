@@ -13,13 +13,15 @@ namespace UserNotesSystem.Data
         public static IServiceCollection AddData(this IServiceCollection services, IConfiguration configuration)
         {
             services.AddDbContext<NotesContext>(builder =>
-                builder.UseSqlServer(configuration.GetConnectionString("Default"), 
+                builder.UseNpgsql(configuration.GetConnectionString("Default"), 
                 options => options.MigrationsAssembly(Assembly.GetExecutingAssembly().FullName)));
 
             services.AddIdentityCore<ApplicationUser>()
+                .AddSignInManager()
                 .AddRoles<IdentityRole>()
                 .AddEntityFrameworkStores<NotesContext>();
 
+            services.AddScoped<ContextInitialiser>();
             services.AddTransient<IdentityService>();
             
             return services;

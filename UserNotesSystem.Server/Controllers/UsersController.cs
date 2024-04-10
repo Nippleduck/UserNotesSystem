@@ -8,7 +8,7 @@ namespace UserNotesSystem.Server.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class UsersController(IdentityService service) : ControllerBase
+    public class UsersController(IdentityService service, CurrentUserAccessor userAccessor) : ControllerBase
     {
         [HttpPost("authenticate")]
         public async Task<ActionResult<AuthenticationResponse>> Authenticate([FromBody] AuthenticationRequest request)
@@ -40,6 +40,9 @@ namespace UserNotesSystem.Server.Controllers
         [Authorize(Policies.AdminOnlyAccess)]
         public async Task<ActionResult> DeleteUser(string id)
         {
+            if (id == userAccessor.UserId) return BadRequest( 
+                new{ message = "Can't remove current active user" } );
+
             await service.DeleteUserAsync(id);
 
             return NoContent();

@@ -29,7 +29,7 @@ namespace UserNotesSystem.Server.Controllers
             {
                 Title = request.Title,
                 Description = request.Description,
-                CreationDate = DateTime.Now,
+                CreationDate = DateTime.UtcNow,
                 OwnerId = userAccessor.UserId,
             };
 
@@ -43,7 +43,11 @@ namespace UserNotesSystem.Server.Controllers
         public async Task<ActionResult> Delete(Guid id)
         {
             var note = await context.Notes.FindAsync(id);
-            if (note is null) return BadRequest( new { message = $"Note with id:{id} not found" } );
+            if (note is null) return NotFound( 
+                new{ message = $"Note with id:{id} not found" } );
+
+            if (note.OwnerId != userAccessor.UserId) return BadRequest(
+                new { message = "Attempted to remove note which belongs to different user" });
 
             context.Notes.Remove(note);
             await context.SaveChangesAsync(true);
